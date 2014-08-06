@@ -20,9 +20,6 @@
 		<property name="dialect">
 			org.hibernate.dialect.MySQLDialect
 		</property>
-		<!-- Echo all executed SQL to stdout -->
-		<!--<property name="show_sql">false</property>
-		<property name="hbm2ddl.auto">update</property>-->
-		<!--<mapping resource=" " />-->
+
 	</session-factory>
 </hibernate-configuration>
