@@ -5174,12 +5174,12 @@ body.vjs-full-window {
 }
 
 .form {
-    margin-top:20px;
+    margin-top: 20px;
     width: 400px;
     float: right;
     position: relative;
     border-radius: 4px;
-    margin-right:20px;
+    margin-right: 20px;
 }
 
 .form .control-group {
@@ -5188,10 +5188,10 @@ body.vjs-full-window {
 }
 
 .form .login-field {
-    border-color:#bfc9ca;
+    border-color: #bfc9ca;
     font-size: 17px;
     text-indent: 3px;
-    height:50px;
+    height: 50px;
 }
 
 .form .login-field:focus {
