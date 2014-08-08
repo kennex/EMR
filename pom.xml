@@ -19,6 +19,12 @@
 		<cglib.version>3.1</cglib.version>
 	</properties>
 
+	<scm>
+		<connection>scm:git:git@github.com:dubdabasoduba/EMR.git</connection>
+		<developerConnection>scm:git:git@github.com:dubdabasoduba/EMR.git</developerConnection>
+		<url>scm:git:git@github.com:dubdabasoduba/EMR.git</url>
+	</scm>
+
 	<dependencies>
 		<!--Spring dependencies-->
 		<dependency>
