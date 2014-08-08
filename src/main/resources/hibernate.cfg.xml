@@ -20,6 +20,6 @@
 		<property name="dialect">
 			org.hibernate.dialect.MySQLDialect
 		</property>
-
+		<mapping file=""></mapping>
 	</session-factory>
 </hibernate-configuration>
