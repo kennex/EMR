@@ -1,4 +1,4 @@
 DMS
 ===
 
-The Delivery Monitoring System
+An Electronic Medical Records Keeping System
