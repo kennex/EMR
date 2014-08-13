@@ -50,3 +50,6 @@ pom.xml.releaseBackup
 *.swp
 *.out
 *.sh
+
+.idea
+EMR.iml
