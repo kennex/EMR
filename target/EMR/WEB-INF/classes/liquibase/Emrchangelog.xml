@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+	<changeSet id="emr.person-v1.0.0" author="Benjamin Mwalimu">
+		<comment>This is the table to hold the common person attributes</comment>
+		<createTable tableName="persons">
+			<column name="person_id" autoIncrement="true" type="int">
+				<constraints primaryKey="true"></constraints>
+			</column>
+		</createTable>
+	</changeSet>
+</databaseChangeLog>
