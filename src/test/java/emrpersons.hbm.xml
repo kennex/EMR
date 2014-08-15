@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.api_craft.model">
+	<class name="Persons" table="persons">
+		<cache usage="read-write"/>
+		<id name="personID" type="java.lang.Integer"><column name="person_id" /><generator class="identity" /></id>
+	</class>
+</hibernate-mapping>
