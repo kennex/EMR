@@ -9,11 +9,9 @@ public class Persons implements Serializable {
 	private static final long serialVersionUID = 1L;
 	public Integer personID;
 
-
-	public Persons () {
+	public Persons() {
 
 	}
-
 
 	public Integer getPersonID() {
 		return personID;

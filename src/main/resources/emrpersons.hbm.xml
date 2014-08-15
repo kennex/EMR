@@ -5,6 +5,9 @@
 <hibernate-mapping package="com.api_craft.model">
 	<class name="Persons" table="persons">
 		<cache usage="read-write"/>
-		<id name="personID" type="java.lang.Integer"><column name="person_id" /><generator class="identity" /></id>
+		<id name="personID" type="java.lang.Integer">
+			<column name="person_id"/>
+			<generator class="identity"/>
+		</id>
 	</class>
 </hibernate-mapping>

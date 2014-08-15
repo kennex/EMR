@@ -16,21 +16,22 @@
   Time: 10:49 PM
   To change this template use File | Settings | File Templates.
 --%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="en">
 <head>
 	<meta charset="utf-8" http-equiv="CONTENT-TYPE" content="text/html">
 	<title>DMS | <%%></title>
-	<link href="/resources/css/bootstrap.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="/resources/css/flat-ui.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="/resources/css/bootstrap-docs.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="/resources/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="/resources/css/font-awesome.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="/resources/css/font-awesome.min.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="/resources/css/prettify.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<link href="/resources/css/style.css" rel="stylesheet" type="text/css" charset="utf-8">
-	<script href="/resources/js/html5shiv.js" rel="stylesheet" type="text/css" charset="utf-8"></script>
-	<script href="/resources/js/respond.min.js" rel="stylesheet" type="text/css" charset="utf-8"></script>
+	<link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="<c:url value="/resources/css/flat-ui.css" />" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="<c:url value="/resources/css/bootstrap-docs.css" />" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="<c:url value="/resources/css/bootstrap-responsive.css" />" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="<c:url value="/resources/css/font-awesome.css" />" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="<c:url value="/resources/css/font-awesome.min.css" />" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="<c:url value="/resources/css/prettify.css" />" rel="stylesheet" type="text/css" charset="utf-8">
+	<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet" type="text/css" charset="utf-8">
+	<script href="<c:url value="/resources/js/html5shiv.js" />s" rel="stylesheet" type="text/css" charset="utf-8"></script>
+	<script href="<c:url value="/resources/js/respond.min.js" />" rel="stylesheet" type="text/css" charset="utf-8"></script>
 
 </head>
 <body>
