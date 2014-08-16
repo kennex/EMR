@@ -4,7 +4,7 @@
 	<groupId>com.api_craft</groupId>
 	<artifactId>EMR</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.0</version>
+	<version>1.0</version>
 	<name>Electronic Medical Record</name>
 	<url>http://api-crafttech.com</url>
 

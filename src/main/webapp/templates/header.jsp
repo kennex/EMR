@@ -21,7 +21,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" http-equiv="CONTENT-TYPE" content="text/html">
-	<title>DMS | <%%></title>
+	<title>EMR | <%%></title>
 	<link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="<c:url value="/resources/css/flat-ui.css" />" rel="stylesheet" type="text/css" charset="utf-8">
 	<link href="<c:url value="/resources/css/bootstrap-docs.css" />" rel="stylesheet" type="text/css" charset="utf-8">
