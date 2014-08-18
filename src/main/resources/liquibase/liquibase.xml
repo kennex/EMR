@@ -22,7 +22,6 @@
 			<column name="retired" type="BOOLEAN" defaultValueBoolean="false"><constraints nullable="false"></constraints></column>
 			<column name="dateretired" type="DATETIME"><constraints nullable="false"></constraints></column>
 			<column name="retiredBy" type="int"><constraints nullable="false"></constraints></column>
-			<column name="staff_uuid" type="char(38)"><constraints nullable="false"></constraints></column>
 		</createTable>
 	</changeSet>
 	<changeSet id="emr-v1.0.1" author="Benjamin Mwalimu Mulyungi">
@@ -42,7 +41,6 @@
 			<column name="deceased" type="BOOLEAN" defaultValueBoolean="false"><constraints nullable="false"></constraints></column>
 			<column name="deathDate" type="DATETIME"><constraints nullable="false"></constraints></column>
 			<column name="deathReportedBy" type="int"><constraints nullable="false"></constraints></column>
-			<column name="pt_uuid" type="varchar(38)"><constraints nullable="false"></constraints></column>
 		</createTable>
 		<addForeignKeyConstraint baseTableName="patients" baseColumnNames="createdBy" constraintName="pt_createdBy_fk"
 		                         referencedTableName="staff"
@@ -66,7 +64,6 @@
 			<column name="voided_by" type="int" />
 			<column name="date_voided" type="datetime" />
 			<column name="void_reason" type="varchar(255)" defaultValue="null"/>
-			<column name="uuid" type="char(38)"><constraints nullable="false" unique="true" /></column>
 		</createTable>
 		<addForeignKeyConstraint baseTableName="diagnosis" baseColumnNames="patient_id" constraintName="diag_patient_id_fk"
 		                         referencedTableName="patients"
@@ -92,7 +89,6 @@
 			<column name="retired_by" type="int"/>
 			<column name="date_retired" type="DATETIME"/>
 			<column name="retire_reason" type="varchar(255)"/>
-			<column name="uuid" type="char(38)" />
 		</createTable>
 		<addForeignKeyConstraint baseTableName="cashpoints" baseColumnNames="creator" constraintName="cashpoint_creator_fk"
 		                         referencedTableName="staff"
@@ -123,7 +119,6 @@
 			<column name="voided_by" type="int" />
 			<column name="date_voided" type="datetime" />
 			<column name="void_reason" type="varchar(255)" defaultValue="null"/>
-			<column name="uuid" type="char(38)"><constraints nullable="false" unique="true" /></column>
 		</createTable>
 		<addForeignKeyConstraint baseTableName="bill" baseColumnNames="cash_point_id" constraintName="bill_cash_point_id_fk"
 		                         referencedTableName="cashpoints"
