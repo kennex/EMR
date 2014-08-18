@@ -18,7 +18,8 @@
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:jsp="http://java.sun.com/JSP/Page">
 <head>
 	<meta charset="utf-8" http-equiv="CONTENT-TYPE" content="text/html">
 	<title>EMR | <%%></title>
@@ -32,7 +33,6 @@
 	<link href="<c:url value="/resources/css/style.css" />" rel="stylesheet" type="text/css" charset="utf-8">
 	<script href="<c:url value="/resources/js/html5shiv.js" />s" rel="stylesheet" type="text/css" charset="utf-8"></script>
 	<script href="<c:url value="/resources/js/respond.min.js" />" rel="stylesheet" type="text/css" charset="utf-8"></script>
-
 </head>
 <body>
 <!-- Fixed navbar -->

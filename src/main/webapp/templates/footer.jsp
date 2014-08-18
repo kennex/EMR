@@ -57,21 +57,22 @@
 	</div>
 </footer>
 
-<script src="<c:url value="/resources/css/bootstrap.css"/>>"></script>
-<script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
-<script src="<?php echo base_url(); ?>js/bootstrap-switch.js"></script>
-<script src="<?php echo base_url(); ?>js/bootstrap-select.js"></script>
-<script src="<?php echo base_url(); ?>js/flatui-checkbox.js"></script>
-<script src="<?php echo base_url(); ?>js/flatui-radio.js"></script>
-<script src="<?php echo base_url(); ?>js/holder.js"></script>
-<script src="<?php echo base_url(); ?>js/icon-font-ie7.js"></script>
-<script src="<?php echo base_url(); ?>js/jquery.placeholder.js"></script>
-<script src="<?php echo base_url(); ?>js/jquery.tagsinput.js"></script>
-<script src="<?php echo base_url(); ?>js/jquery.ui.touch-punch.min.js"></script>
-<script src="<?php echo base_url(); ?>js/jquery-1.8.3.min.js"></script>
-<script src="<?php echo base_url(); ?>js/jquery-1.10.2.min.js"></script>
-<script src="<?php echo base_url(); ?>js/jquery-2.0.3.min.js"></script>
-<script src="<?php echo base_url(); ?>js/jquery-ui-1.10.3.custom.min.js"></script>
-<script src="<?php echo base_url(); ?>js/bootstrap.js"></script>
+<script src="<c:url value="/resources/js/bootstrap.js"/>"></script>
+<script src="<c:url value="/resources/js/bootstrap.min.js"/>"></script>
+<script src="<c:url value="/resources/js/bootstrap-switch.js"/>"></script>
+<script src="<c:url value="/resources/js/bootstrap-select.js"/>"></script>
+<script src="<c:url value="/resources/js/flatui-checkbox.js"/>"></script>
+<script src="<c:url value="/resources/js/flatui-radio.js"/>"></script>
+<script src="<c:url value="/resources/js/holder.js"/>"></script>
+<script src="<c:url value="/resources/js/icon-font-ie7.js"/>"></script>
+<script src="<c:url value="/resources/js/jquery.placeholder.js"/>"></script>
+<script src="<c:url value="/resources/js/jquery.tagsinput.js"/>"></script>
+<script src="<c:url value="/resources/js/jquery-ui-1.10.3.custom.min.js"/>"></script>
+<script src="<c:url value="/resources/js/jquery-1.8.3.min.js"/>"></script>
+<script src="<c:url value="/resources/js/jquery-1.10.2.min.js"/>"></script>
+<script src="<c:url value="/resources/js/jquery-2.0.3.min.js"/>"></script>
+<script src="<c:url value="/resources/js/jquery.ui.touch-punch.min.js"/>"></script>
+<script src="<c:url value="/resources/js/application.js"/>"></script>
+<script src="<c:url value="/resources/js/typeahead.js"/>"></script>
 </body>
 </html>
