@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+	<changeSet id="emr-v1.0.0" author="Benjamin Mwalimu Mulyungi">
+		<comment>This is the table to hold the staff attributes</comment>
+		<createTable tableName="staff">
+			<column name="staff_id" autoIncrement="true" type="int">
+				<constraints primaryKey="true" nullable="false"></constraints>
+			</column>
+			<column name="staff_Fname" type="varchar(255)"><constraints nullable="false"></constraints></column>
+			<column name="staff_Sname" type="varchar(255)"><constraints nullable="false"></constraints></column>
+			<column name="staff_Lname" type="varchar(255)"><constraints nullable="false"></constraints></column>
+			<column name="staff_IdNo" type="varchar(255)"><constraints nullable="false"></constraints></column>
+			<column name="staff_Email" type="varchar(255)"><constraints nullable="false"></constraints></column>
+			<column name="staff_PhoneNumber" type="int"><constraints nullable="false"></constraints></column>
+			<column name="staff_box" type="varchar(255)"><constraints nullable="false"></constraints></column>
+			<column name="staff_dateOfBirth" type="DATETIME"><constraints nullable="false"></constraints></column>
+			<column name="staff_jobIdentity" type="varchar(255)"><constraints nullable="false"></constraints></column>
+			<column name="dateCreated" type="DATETIME"><constraints nullable="false"></constraints></column>
+			<column name="retired" type="BOOLEAN" defaultValueBoolean="false"><constraints nullable="false"></constraints></column>
+			<column name="dateretired" type="DATETIME"><constraints nullable="false"></constraints></column>
+			<column name="retiredBy" type="int"><constraints nullable="false"></constraints></column>
+		</createTable>
+	</changeSet>
+	<changeSet id="emr-v1.0.1" author="Benjamin Mwalimu Mulyungi">
+		<comment>This is the table to handle the registration of patients</comment>
+		<createTable tableName="patients">
+			<column name="patients_id" autoIncrement="true"
+			        type="int"><constraints primaryKey="true" nullable="false"></constraints></column>
+			<column name="pt_Fname" type="varchar(255)"><constraints nullable="false"></constraints></column>
+			<column name="pt_Sname" type="varchar(255)"><constraints nullable="false"></constraints></column>
+			<column name="pt_Lname" type="varchar(255)"><constraints nullable="false"></constraints></column>
+			<column name="pt_IdNo" type="varchar(255)"><constraints nullable="true"></constraints></column>
+			<column name="pt_PhoneNumber" type="varchar(255)"><constraints nullable="false"></constraints></column>
+			<column name="pt_dateOfBirth" type="varchar(255)"><constraints nullable="false"></constraints></column>
+			<column name="pt_NextofKin" type="varchar(255)"><constraints nullable="false"></constraints></column>
+			<column name="dateCreated" type="DATETIME"><constraints nullable="false"></constraints></column>
+			<column name="createdBy" type="int"><constraints nullable="false"></constraints></column>
+			<column name="deceased" type="BOOLEAN" defaultValueBoolean="false"><constraints nullable="false"></constraints></column>
+			<column name="deathDate" type="DATETIME"><constraints nullable="false"></constraints></column>
+			<column name="deathReportedBy" type="int"><constraints nullable="false"></constraints></column>
+		</createTable>
+		<addForeignKeyConstraint baseTableName="patients" baseColumnNames="createdBy" constraintName="pt_createdBy_fk"
+		                         referencedTableName="staff"
+		                         referencedColumnNames="staff_id"></addForeignKeyConstraint>
+		<addForeignKeyConstraint baseTableName="patients" baseColumnNames="deathReportedBy"
+		                         constraintName="pt_deathReportedBy_fk"
+		                         referencedTableName="staff"
+		                         referencedColumnNames="staff_id"></addForeignKeyConstraint>
+	</changeSet>
+	<changeSet id="emr-v1.0.2" author="Benjamin Mwalimu Mulyungi">
+		<comment>This is the table to handle the diagnosis made by the doctors</comment>
+		<createTable tableName="diagnosis">
+			<column name="diag_id" autoIncrement="true" type="int"><constraints nullable="false" primaryKey="true"></constraints></column>
+			<column name="patient_id" type="int"><constraints nullable="false"></constraints></column>
+			<column name="diag_description" type="varchar(1024)"><constraints nullable="false"></constraints></column>
+			<column name="diag_Date" type="DATETIME"><constraints nullable="false"></constraints></column>
+			<column name="diag_creator" type="int"><constraints nullable="false"></constraints></column>
+			<column name="changed_by" type="int"/>
+			<column name="date_changed" type="datetime" />
+			<column name="voided" type="boolean" defaultValueBoolean="false"><constraints nullable="false"/></column>
+			<column name="voided_by" type="int" />
+			<column name="date_voided" type="datetime" />
+			<column name="void_reason" type="varchar(255)" defaultValue="null"/>
+		</createTable>
+		<addForeignKeyConstraint baseTableName="diagnosis" baseColumnNames="patient_id" constraintName="diag_patient_id_fk"
+		                         referencedTableName="patients"
+		                         referencedColumnNames="patients_id"></addForeignKeyConstraint>
+		<addForeignKeyConstraint baseTableName="diagnosis" baseColumnNames="diag_creator"
+		                         constraintName="diag_diag_creator_fk"
+		                         referencedTableName="staff"
+		                         referencedColumnNames="staff_id"></addForeignKeyConstraint>
+	</changeSet>
+	<changeSet id="emr-v1.0.3" author="Benjamin Mwalimu Mulyungi">
+		<comment>This is the table that houses the cashpoints (Places where people pay for any of the payment
+			needed in the hospital)</comment>
+		<createTable tableName="cashpoints">
+			<column name="cashpoint_id" autoIncrement="true"
+			        type="int"><constraints nullable="false" primaryKey="true"></constraints></column>
+			<column name="name" type="varchar(255)"><constraints nullable="false"></constraints></column>
+			<column name="description" type="varchar(1024)"><constraints nullable="true"></constraints></column>
+			<column name="creator" type="int"><constraints nullable="false"/></column>
+			<column name="date_created" type="DATETIME"><constraints nullable="false"/></column>
+			<column name="changed_by" type="int"/>
+			<column name="date_changed" type="DATETIME"/>
+			<column name="retired" type="BOOLEAN" defaultValueBoolean="false" ><constraints nullable="false"/></column>
+			<column name="retired_by" type="int"/>
+			<column name="date_retired" type="DATETIME"/>
+			<column name="retire_reason" type="varchar(255)"/>
+		</createTable>
+		<addForeignKeyConstraint baseTableName="cashpoints" baseColumnNames="creator" constraintName="cashpoint_creator_fk"
+		                         referencedTableName="staff"
+		                         referencedColumnNames="staff_id"></addForeignKeyConstraint>
+		<addForeignKeyConstraint baseTableName="cashpoints" baseColumnNames="changed_by"
+		                         constraintName="cashpoint_changed_by_fk"
+		                         referencedTableName="staff"
+		                         referencedColumnNames="staff_id"></addForeignKeyConstraint>
+		<addForeignKeyConstraint baseTableName="cashpoints" baseColumnNames="retired_by"
+		                         constraintName="cashpoint_retired_by"
+		                         referencedTableName="staff"
+		                         referencedColumnNames="staff_id"></addForeignKeyConstraint>
+	</changeSet>
+	<changeSet id="emr-v1.0.4" author="Benjamin Mwalimu Mulyungi">
+		<comment>This table handles the billing in the hospital</comment>
+		<createTable tableName="bill">
+			<column name="bill_id" autoIncrement="true" type="int"><constraints nullable="false" primaryKey="true"></constraints></column>
+			<column name="receipt_number" type="varchar(255)" />
+			<column name="patient_id" type="int"><constraints nullable="false" /></column>
+			<column name="cash_point_id" type="int"><constraints nullable="false" /></column>
+			<column name="status" type="int"><constraints nullable="false" /></column>
+			<column name="adjusted_bill_id" type="int" />
+			<column name="creator" type="int"><constraints nullable="false"/></column>
+			<column name="date_created" type="datetime"><constraints nullable="false"/></column>
+			<column name="changed_by" type="int"/>
+			<column name="date_changed" type="datetime" />
+			<column name="voided" type="boolean" defaultValueBoolean="false"><constraints nullable="false"/></column>
+			<column name="voided_by" type="int" />
+			<column name="date_voided" type="datetime" />
+			<column name="void_reason" type="varchar(255)" defaultValue="null"/>
+		</createTable>
+		<addForeignKeyConstraint baseTableName="bill" baseColumnNames="cash_point_id" constraintName="bill_cash_point_id_fk"
+		                         referencedTableName="cashpoints"
+		                         referencedColumnNames="cashpoint_id"></addForeignKeyConstraint>
+		<addForeignKeyConstraint baseTableName="bill" baseColumnNames="creator" constraintName="bill_creator_fk"
+		                         referencedTableName="staff"
+		                         referencedColumnNames="staff_id"></addForeignKeyConstraint>
+		<addForeignKeyConstraint baseTableName="bill" baseColumnNames="changed_by" constraintName="bill_changed_by"
+		                         referencedTableName="staff"
+		                         referencedColumnNames="staff_id"></addForeignKeyConstraint>
+		<addForeignKeyConstraint baseTableName="bill" baseColumnNames="voided_by" constraintName="bill_voided_by"
+		                         referencedTableName="staff"
+		                         referencedColumnNames="staff_id"></addForeignKeyConstraint>
+	</changeSet>
+
+</databaseChangeLog>
