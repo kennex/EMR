@@ -133,5 +133,36 @@
 		                         referencedTableName="staff"
 		                         referencedColumnNames="staff_id"></addForeignKeyConstraint>
 	</changeSet>
-
+	<changeSet id="emr-v1.0.5" author="Benjamin Mwalimu Mulyungi">
+		<createTable tableName="drugs">
+			<column name="drug_id" autoIncrement="true" type="int"><constraints nullable="false" primaryKey="true"></constraints></column>
+			<column name="name" type="varchar(1024)"><constraints nullable="false"></constraints></column>
+			<column name="description" type="varchar(1024)"><constraints nullable="false"></constraints></column>
+			<column name="creator" type="int"><constraints nullable="false"/></column>
+			<column name="date_created" type="datetime"><constraints nullable="false"/></column>
+			<column name="changed_by" type="int"/>
+			<column name="date_changed" type="datetime" />
+			<column name="voided" type="boolean" defaultValueBoolean="false"><constraints nullable="false"/></column>
+			<column name="voided_by" type="int" />
+			<column name="date_voided" type="datetime" />
+			<column name="void_reason" type="varchar(255)" defaultValue="null"/>
+		</createTable>
+		<addForeignKeyConstraint baseTableName="drugs" baseColumnNames="creator" constraintName="drug_creator_fk"
+		                         referencedTableName="staff"
+		                         referencedColumnNames="staff_id"></addForeignKeyConstraint>
+		<addForeignKeyConstraint baseTableName="drugs" baseColumnNames="changed_by" constraintName="drug_changed_by"
+		                         referencedTableName="staff"
+		                         referencedColumnNames="staff_id"></addForeignKeyConstraint>
+		<addForeignKeyConstraint baseTableName="drugs" baseColumnNames="voided_by" constraintName="drugs_voided_by"
+		                         referencedTableName="staff"
+		                         referencedColumnNames="staff_id"></addForeignKeyConstraint>
+	</changeSet>
+	<changeSet id="emr-v1.0.2.1" author="Benjamin Mwalimu Mulyungi">
+		<addColumn tableName="diagnosis">
+			<column name="prescription" type="int"><constraints nullable="false"></constraints></column>
+		</addColumn>
+		<addForeignKeyConstraint baseTableName="diagnosis" baseColumnNames="prescription" constraintName="prescription_fk"
+		                         referencedTableName="drugs"
+		                         referencedColumnNames="drug_id"></addForeignKeyConstraint>
+	</changeSet>
 </databaseChangeLog>
