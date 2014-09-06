@@ -237,18 +237,12 @@
 		                         referencedColumnNames="patients_id"></addForeignKeyConstraint>
 	</changeSet>
 	<changeSet id="emr-v1.0.8" author="Benjamin Mwalimu Mulyungi">
-		<createTable tableName="User">
-			<column name="user_id" type="varchar(40)"><constraints nullable="false"
+		<createTable tableName="customer">
+			<column name="PATIENT_ID" type="int" autoIncrement="true"><constraints nullable="false"
 			                                                                primaryKey="true"></constraints></column>
-			<column name="password" type="varchar(40)"><constraints nullable="false"></constraints> </column>
-			<column name="name" type="varchar(40)"><constraints nullable="false"></constraints></column>
-			<column name="email" type="varchar(40)"><constraints nullable="false"></constraints></column>
+			<column name="NAME" type="varchar(40)"><constraints nullable="false"></constraints> </column>
+			<column name="ADDRESS" type="varchar(255)"><constraints nullable="false"></constraints></column>
+			<column name="CREATED_DATE" type="datetime"><constraints nullable="false"></constraints></column>
 		</createTable>
-		<insert tableName="User">
-			<column name="user_id" value="1"></column>
-			<column name="password" value="root"></column>
-			<column name="name" value="root"></column>
-			<column name="email" value="benjaminmwalimu1@gmail.com"></column>
-		</insert>
 	</changeSet>
 </databaseChangeLog>
