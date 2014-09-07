@@ -1,24 +1,24 @@
-package com.api_craft.Patients.model;
+package com.api_craft.Customer.model;
 
 import java.util.Date;
 
 /**
  * Created by benjamin on 9/6/14.
  */
-public class Patient implements java.io.Serializable {
+public class Customer implements java.io.Serializable {
 
-	public Long getPatientId() {
-		return patientId;
-	}
-
-	public void setPatientId(Long patientId) {
-		this.patientId = patientId;
-	}
-
-	private Long patientId;
+	private Long customerId;
 	private String name;
 	private String address;
 	private Date createdDate;
+
+	public Long getCustomerId() {
+		return customerId;
+	}
+
+	public void setCustomerId(Long customerId) {
+		this.customerId = customerId;
+	}
 
 	public String getName() {
 		return name;

@@ -2,19 +2,19 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="com.api_craft.Patients.model.Patient"
-	       table="customer">
-		<id name="patientId" type="java.lang.Long">
-			<column name="PATIENT_ID" />
+	<class name="com.api_craft.Customer.model.Customer"
+	       table="customer" >
+		<id name="customerId" type="java.lang.Long">
+			<column name="CUSTOMER_ID" />
 			<generator class="identity" />
 		</id>
-		<property name="name" type="string">
+		<property name="name" type="java.lang.String">
 			<column name="NAME" length="45" not-null="true" />
 		</property>
-		<property name="address" type="string">
+		<property name="address" type="java.lang.String">
 			<column name="ADDRESS" not-null="true" />
 		</property>
-		<property name="createdDate" type="timestamp">
+		<property name="createdDate" type="java.util.Date">
 			<column name="CREATED_DATE" length="19" not-null="true" />
 		</property>
 	</class>

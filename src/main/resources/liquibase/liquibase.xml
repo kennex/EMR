@@ -238,11 +238,11 @@
 	</changeSet>
 	<changeSet id="emr-v1.0.8" author="Benjamin Mwalimu Mulyungi">
 		<createTable tableName="customer">
-			<column name="PATIENT_ID" type="int" autoIncrement="true"><constraints nullable="false"
+			<column name="CUSTOMER_ID" type="BIGINT(20)"  autoIncrement="true"><constraints nullable="false"
 			                                                                primaryKey="true"></constraints></column>
-			<column name="NAME" type="varchar(40)"><constraints nullable="false"></constraints> </column>
+			<column name="NAME" type="varchar(45)"><constraints nullable="false"></constraints> </column>
 			<column name="ADDRESS" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="CREATED_DATE" type="datetime"><constraints nullable="false"></constraints></column>
+			<column name="CREATED_DATE" type="timestamp"><constraints nullable="false"></constraints></column>
 		</createTable>
 	</changeSet>
 </databaseChangeLog>
