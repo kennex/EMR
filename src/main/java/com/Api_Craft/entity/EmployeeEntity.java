@@ -1,4 +1,4 @@
-package com.api_craft.entity;
+package com.Api_Craft.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

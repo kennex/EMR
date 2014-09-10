@@ -242,8 +242,8 @@
 			                                                                primaryKey="true"></constraints></column>
 			<column name="FIRSTNAME" type="varchar(45)"><constraints nullable="false"></constraints> </column>
 			<column name="LASTNAME" type="varchar(45)"><constraints nullable="false"></constraints> </column>
-			<column name="EMAIL" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="TELEPHONE" type="int(20)"><constraints nullable="false"></constraints></column>
+			<column name="EMAIL" type="varchar(45)"><constraints nullable="false"></constraints> </column>
+			<column name="TELEPHONE" type="varchar(45)"><constraints nullable="false"></constraints> </column>
 		</createTable>
 	</changeSet>
 </databaseChangeLog>

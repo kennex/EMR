@@ -4,10 +4,10 @@
 	<groupId>com.api_craft</groupId>
 	<artifactId>EMR</artifactId>
 	<packaging>war</packaging>
-	<version>1.0</version>
+	<version>1.0-SNAPSHOT</version>
 	<name>Electronic Medical Record</name>
-	<url>http://api-crafttech.com</url>
 	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring.version>4.0.6.RELEASE</spring.version>
 		<hibernate.version>4.3.6.Final</hibernate.version>
 		<sl4j.version>1.7.7</sl4j.version>
@@ -253,10 +253,10 @@
 			<version>${sl4j.version}</version>
 		</dependency>
 		<dependency>
-		<groupId>org.slf4j</groupId>
-		<artifactId>jcl-over-slf4j</artifactId>
-		<version>${sl4j.version}</version>
-	</dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${sl4j.version}</version>
+		</dependency>
 
 		<!--log4j dependencies-->
 		<dependency>
@@ -388,6 +388,11 @@
 			<artifactId>ehcache-core</artifactId>
 			<version>2.6.9</version>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-war-plugin</artifactId>
+			<version>2.2</version>
+		</dependency>
 
 	</dependencies>
 	<!--End of dependancies-->
@@ -464,7 +469,7 @@
 					</execution>
 				</executions>
 			</plugin>
-		</plugins>
+			</plugins>
 		<finalName>EMR</finalName>
 	</build>
 </project>

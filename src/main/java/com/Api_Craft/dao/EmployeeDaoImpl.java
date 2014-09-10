@@ -1,21 +1,17 @@
-package com.api_craft.dao;
+package com.Api_Craft.dao;
 
-import com.api_craft.entity.EmployeeEntity;
+
+import com.Api_Craft.entity.EmployeeEntity;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public class EmployeeDaoImpl implements EmployeeDAO  
+public class EmployeeDaoImpl implements EmployeeDAO
 {
 	//Session factory injected by spring context
     private SessionFactory sessionFactory;
-
-	//This setter will be used by Spring context to inject the sessionFactory instance
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
 	
     //This method will be called when a employee object is added
 	@Override
@@ -38,5 +34,10 @@ public class EmployeeDaoImpl implements EmployeeDAO
         if (null != employee) {
         	this.sessionFactory.getCurrentSession().delete(employee);
         }
+	}
+
+	//This setter will be used by Spring context to inject the sessionFactory instance
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
 }
