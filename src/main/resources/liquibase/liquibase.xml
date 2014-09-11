@@ -237,13 +237,13 @@
 		                         referencedColumnNames="patients_id"></addForeignKeyConstraint>
 	</changeSet>
 	<changeSet id="emr-v1.0.8" author="Benjamin Mwalimu Mulyungi">
-		<createTable tableName="EMPLOYEE">
-			<column name="ID" type="int"  autoIncrement="true"><constraints nullable="false"
+		<createTable tableName="customer">
+			<column name="id" type="int"  autoIncrement="true"><constraints nullable="false"
 			                                                                primaryKey="true"></constraints></column>
-			<column name="FIRSTNAME" type="varchar(45)"><constraints nullable="false"></constraints> </column>
-			<column name="LASTNAME" type="varchar(45)"><constraints nullable="false"></constraints> </column>
-			<column name="EMAIL" type="varchar(45)"><constraints nullable="false"></constraints> </column>
-			<column name="TELEPHONE" type="varchar(45)"><constraints nullable="false"></constraints> </column>
+			<column name="name" type="varchar(45)"><constraints nullable="false"></constraints> </column>
+			<column name="address" type="varchar(45)"><constraints nullable="false"></constraints> </column>
+			<column name="gender" type="varchar(45)"><constraints nullable="false"></constraints> </column>
+			<column name="item" type="varchar(45)"><constraints nullable="false"></constraints> </column>
 		</createTable>
 	</changeSet>
 </databaseChangeLog>
