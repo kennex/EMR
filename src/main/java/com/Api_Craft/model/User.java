@@ -2,7 +2,6 @@ package com.Api_Craft.model;
 
 public class User {
 
-
 	private Integer id;
 	private String name;
 	private String pwd;
@@ -39,9 +38,9 @@ public class User {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
 	@Override
-	public String toString(){
-		return "Name= "+name+", Email= "+email;
+	public String toString() {
+		return "Name= " + name + ", Email= " + email;
 	}
 }
