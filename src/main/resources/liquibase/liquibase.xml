@@ -9,39 +9,93 @@
 			<column name="staff_id" autoIncrement="true" type="int">
 				<constraints primaryKey="true" nullable="false"></constraints>
 			</column>
-			<column name="staff_Fname" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="staff_Sname" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="staff_Lname" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="staff_IdNo" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="staff_Email" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="staff_PhoneNumber" type="int"><constraints nullable="false"></constraints></column>
-			<column name="staff_box" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="staff_dateOfBirth" type="DATETIME"><constraints nullable="false"></constraints></column>
-			<column name="staff_jobIdentity" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="dateCreated" type="timestamp"><constraints nullable="false"></constraints></column>
-			<column name="retired" type="BOOLEAN" defaultValueBoolean="false"><constraints nullable="false"></constraints></column>
-			<column name="dateretired" type="timestamp"><constraints nullable="false"></constraints></column>
-			<column name="retiredBy" type="int"><constraints nullable="false"></constraints></column>
+			<column name="staff_Fname" type="varchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="staff_Sname" type="varchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="staff_Lname" type="varchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="staff_IdNo" type="varchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="staff_Email" type="varchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="staff_PhoneNumber" type="int">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="staff_box" type="varchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="staff_dateOfBirth" type="DATETIME">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="staff_jobIdentity" type="varchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="dateCreated" type="timestamp">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="retired" type="BOOLEAN" defaultValueBoolean="false">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="dateretired" type="timestamp">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="retiredBy" type="int">
+				<constraints nullable="false"></constraints>
+			</column>
 		</createTable>
 	</changeSet>
 	<changeSet id="emr-v1.0.1" author="Benjamin Mwalimu Mulyungi">
 		<comment>This is the table to handle the registration of patients</comment>
 		<createTable tableName="patients">
 			<column name="patients_id" autoIncrement="true"
-			        type="int"><constraints primaryKey="true" nullable="false"></constraints></column>
-			<column name="pt_Fname" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="pt_Sname" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="pt_Lname" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="pt_IdNo" type="varchar(255)"><constraints nullable="true"></constraints></column>
-			<column name="pt_PhoneNumber" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="pt_dateOfBirth" type="DATETIME"><constraints nullable="false"></constraints></column>
-			<column name="pt_NextofKinName" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="pt_NextofKinContacts" type="int"><constraints nullable="false"></constraints></column>
-			<column name="dateCreated" type="timestamp"><constraints nullable="false"></constraints></column>
-			<column name="createdBy" type="int"><constraints nullable="false"></constraints></column>
-			<column name="deceased" type="BOOLEAN" defaultValueBoolean="false"><constraints nullable="false"></constraints></column>
-			<column name="deathDate" type="timestamp"><constraints nullable="false"></constraints></column>
-			<column name="deathReportedBy" type="int"><constraints nullable="false"></constraints></column>
+			        type="int">
+				<constraints primaryKey="true" nullable="false"></constraints>
+			</column>
+			<column name="pt_Fname" type="varchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="pt_Sname" type="varchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="pt_Lname" type="varchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="pt_IdNo" type="varchar(255)">
+				<constraints nullable="true"></constraints>
+			</column>
+			<column name="pt_PhoneNumber" type="varchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="pt_dateOfBirth" type="DATETIME">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="pt_NextofKinName" type="varchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="pt_NextofKinContacts" type="int">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="dateCreated" type="timestamp">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="createdBy" type="int">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="deceased" type="BOOLEAN" defaultValueBoolean="false">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="deathDate" type="timestamp">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="deathReportedBy" type="int">
+				<constraints nullable="false"></constraints>
+			</column>
 		</createTable>
 		<addForeignKeyConstraint baseTableName="patients" baseColumnNames="createdBy" constraintName="pt_createdBy_fk"
 		                         referencedTableName="staff"
@@ -54,16 +108,36 @@
 	<changeSet id="emr-v1.0.2" author="Benjamin Mwalimu Mulyungi">
 		<comment>This is the table to handle the diagnosis made by the doctors</comment>
 		<createTable tableName="diagnosis">
-			<column name="diag_id" autoIncrement="true" type="int"><constraints nullable="false" primaryKey="true"></constraints></column>
-			<column name="patient_id" type="int"><constraints nullable="false"></constraints></column>
-			<column name="diag_description" type="varchar(1024)"><constraints nullable="false"></constraints></column>
-			<column name="diag_Date" type="timestamp"><constraints nullable="false"></constraints></column>
-			<column name="diag_creator" type="int"><constraints nullable="false"></constraints></column>
-			<column name="changed_by" type="int"><constraints nullable="false"/></column>
-			<column name="date_changed" type="timestamp"><constraints nullable="false"/></column>
-			<column name="voided" type="boolean" defaultValueBoolean="false"><constraints nullable="false"/></column>
-			<column name="voided_by" type="int"><constraints nullable="false"/></column>
-			<column name="date_voided" type="timestamp"><constraints nullable="false"/></column>
+			<column name="diag_id" autoIncrement="true" type="int">
+				<constraints nullable="false" primaryKey="true"></constraints>
+			</column>
+			<column name="patient_id" type="int">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="diag_description" type="varchar(1024)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="diag_Date" type="timestamp">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="diag_creator" type="int">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="changed_by" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="date_changed" type="timestamp">
+				<constraints nullable="false"/>
+			</column>
+			<column name="voided" type="boolean" defaultValueBoolean="false">
+				<constraints nullable="false"/>
+			</column>
+			<column name="voided_by" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="date_voided" type="timestamp">
+				<constraints nullable="false"/>
+			</column>
 			<column name="void_reason" type="varchar(255)" defaultValue="null"/>
 		</createTable>
 		<addForeignKeyConstraint baseTableName="diagnosis" baseColumnNames="patient_id" constraintName="diag_patient_id_fk"
@@ -76,20 +150,43 @@
 	</changeSet>
 	<changeSet id="emr-v1.0.3" author="Benjamin Mwalimu Mulyungi">
 		<comment>This is the table that houses the cashpoints (Places where people pay for any of the payment
-			needed in the hospital)</comment>
+			needed in the hospital)
+		</comment>
 		<createTable tableName="cashpoints">
 			<column name="cashpoint_id" autoIncrement="true"
-			        type="int"><constraints nullable="false" primaryKey="true"></constraints></column>
-			<column name="name" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="description" type="varchar(1024)"><constraints nullable="true"></constraints></column>
-			<column name="creator" type="int"><constraints nullable="false"/></column>
-			<column name="date_created" type="timestamp"><constraints nullable="false"/></column>
-			<column name="changed_by" type="int"><constraints nullable="false"/></column>
-			<column name="date_changed" type="timestamp"><constraints nullable="false"/></column>
-			<column name="retired" type="BOOLEAN" defaultValueBoolean="false" ><constraints nullable="false"/></column>
-			<column name="retired_by" type="int"><constraints nullable="false"/></column>
-			<column name="date_retired" type="timestamp"><constraints nullable="false"/></column>
-			<column name="retire_reason" type="varchar(255)"><constraints nullable="false"/></column>
+			        type="int">
+				<constraints nullable="false" primaryKey="true"></constraints>
+			</column>
+			<column name="name" type="varchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="description" type="varchar(1024)">
+				<constraints nullable="true"></constraints>
+			</column>
+			<column name="creator" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="date_created" type="timestamp">
+				<constraints nullable="false"/>
+			</column>
+			<column name="changed_by" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="date_changed" type="timestamp">
+				<constraints nullable="false"/>
+			</column>
+			<column name="retired" type="BOOLEAN" defaultValueBoolean="false">
+				<constraints nullable="false"/>
+			</column>
+			<column name="retired_by" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="date_retired" type="timestamp">
+				<constraints nullable="false"/>
+			</column>
+			<column name="retire_reason" type="varchar(255)">
+				<constraints nullable="false"/>
+			</column>
 		</createTable>
 		<addForeignKeyConstraint baseTableName="cashpoints" baseColumnNames="creator" constraintName="cashpoint_creator_fk"
 		                         referencedTableName="staff"
@@ -106,19 +203,43 @@
 	<changeSet id="emr-v1.0.4" author="Benjamin Mwalimu Mulyungi">
 		<comment>This table handles the billing in the hospital</comment>
 		<createTable tableName="bill">
-			<column name="bill_id" autoIncrement="true" type="int"><constraints nullable="false" primaryKey="true"></constraints></column>
-			<column name="receipt_number" type="varchar(255)" />
-			<column name="patient_id" type="int"><constraints nullable="false" /></column>
-			<column name="cash_point_id" type="int"><constraints nullable="false" /></column>
-			<column name="status" type="int"><constraints nullable="false" /></column>
-			<column name="adjusted_bill_id" type="int"><constraints nullable="false"/></column>
-			<column name="creator" type="int"><constraints nullable="false"/></column>
-			<column name="date_created" type="timestamp"><constraints nullable="false"/></column>
-			<column name="changed_by" type="int"><constraints nullable="false"/></column>
-			<column name="date_changed" type="timestamp"><constraints nullable="false"/></column>
-			<column name="voided" type="boolean" defaultValueBoolean="false"><constraints nullable="false"/></column>
-			<column name="voided_by" type="int" ><constraints nullable="false"/></column>
-			<column name="date_voided" type="timestamp"><constraints nullable="false"/></column>
+			<column name="bill_id" autoIncrement="true" type="int">
+				<constraints nullable="false" primaryKey="true"></constraints>
+			</column>
+			<column name="receipt_number" type="varchar(255)"/>
+			<column name="patient_id" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="cash_point_id" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="status" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="adjusted_bill_id" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="creator" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="date_created" type="timestamp">
+				<constraints nullable="false"/>
+			</column>
+			<column name="changed_by" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="date_changed" type="timestamp">
+				<constraints nullable="false"/>
+			</column>
+			<column name="voided" type="boolean" defaultValueBoolean="false">
+				<constraints nullable="false"/>
+			</column>
+			<column name="voided_by" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="date_voided" type="timestamp">
+				<constraints nullable="false"/>
+			</column>
 			<column name="void_reason" type="varchar(255)" defaultValue="null"/>
 		</createTable>
 		<addForeignKeyConstraint baseTableName="bill" baseColumnNames="cash_point_id" constraintName="bill_cash_point_id_fk"
@@ -136,16 +257,34 @@
 	</changeSet>
 	<changeSet id="emr-v1.0.5" author="Benjamin Mwalimu Mulyungi">
 		<createTable tableName="drugs">
-			<column name="drug_id" autoIncrement="true" type="int"><constraints nullable="false" primaryKey="true"></constraints></column>
-			<column name="name" type="varchar(1024)"><constraints nullable="false"></constraints></column>
-			<column name="description" type="varchar(1024)"><constraints nullable="false"></constraints></column>
-			<column name="creator" type="int"><constraints nullable="false"/></column>
-			<column name="date_created" type="timestamp"><constraints nullable="false"/></column>
-			<column name="changed_by" type="int"><constraints nullable="false"/></column>
-			<column name="date_changed" type="timestamp" />
-			<column name="voided" type="boolean" defaultValueBoolean="false"><constraints nullable="false"/></column>
-			<column name="voided_by" type="int"><constraints nullable="false"/></column>
-			<column name="date_voided" type="timestamp"><constraints nullable="false"/></column>
+			<column name="drug_id" autoIncrement="true" type="int">
+				<constraints nullable="false" primaryKey="true"></constraints>
+			</column>
+			<column name="name" type="varchar(1024)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="description" type="varchar(1024)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="creator" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="date_created" type="timestamp">
+				<constraints nullable="false"/>
+			</column>
+			<column name="changed_by" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="date_changed" type="timestamp"/>
+			<column name="voided" type="boolean" defaultValueBoolean="false">
+				<constraints nullable="false"/>
+			</column>
+			<column name="voided_by" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="date_voided" type="timestamp">
+				<constraints nullable="false"/>
+			</column>
 			<column name="void_reason" type="varchar(255)" defaultValue="null"/>
 		</createTable>
 		<addForeignKeyConstraint baseTableName="drugs" baseColumnNames="creator" constraintName="drug_creator_fk"
@@ -160,7 +299,9 @@
 	</changeSet>
 	<changeSet id="emr-v1.0.2.1" author="Benjamin Mwalimu Mulyungi">
 		<addColumn tableName="diagnosis">
-			<column name="prescription" type="int"><constraints nullable="false"></constraints></column>
+			<column name="prescription" type="int">
+				<constraints nullable="false"></constraints>
+			</column>
 		</addColumn>
 		<addForeignKeyConstraint baseTableName="diagnosis" baseColumnNames="prescription" constraintName="prescription_fk"
 		                         referencedTableName="drugs"
@@ -168,30 +309,70 @@
 	</changeSet>
 	<changeSet id="emr-v1.0.1.1" author="Benjamin Mwalimu Mulyungi">
 		<addColumn tableName="patients">
-			<column name="pt_Gender" type="varchar(10)"><constraints nullable="false"></constraints></column>
-			<column name="pt_Email" type="varchar(255)"><constraints nullable="true"></constraints></column>
-			<column name="pt_BloodGroup" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="pt_MaritalStatus" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="pt_Image" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="pt_Town" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="pt_Village" type="varchar(255)"><constraints nullable="false"></constraints></column>
+			<column name="pt_Gender" type="varchar(10)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="pt_Email" type="varchar(255)">
+				<constraints nullable="true"></constraints>
+			</column>
+			<column name="pt_BloodGroup" type="varchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="pt_MaritalStatus" type="varchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="pt_Image" type="varchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="pt_Town" type="varchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="pt_Village" type="varchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
 		</addColumn>
 	</changeSet>
 	<changeSet id="emr-v1.0.6" author="Benjamin Mwalimu Mulyungi">
 		<createTable tableName="Observations">
-			<column name="Obs_ID" type="int" autoIncrement="true"><constraints primaryKey="true"></constraints></column>
-			<column name="Patients_Id" type="int"><constraints nullable="false"></constraints></column>
-			<column name="Body_Temperature" type="float"><constraints nullable="false"></constraints></column>
-			<column name="Body_Pressure" type="float"><constraints nullable="false"></constraints></column>
-			<column name="Pulse_Rate" type="float"><constraints nullable="false"></constraints></column>
-			<column name="Remarks" type="varchar(1024)"><constraints nullable="true"></constraints></column>
-			<column name="creator" type="int"><constraints nullable="false"/></column>
-			<column name="date_created" type="timestamp" ><constraints nullable="false"/></column>
-			<column name="changed_by" type="int"><constraints nullable="false"/></column>
-			<column name="date_changed" type="timestamp"><constraints nullable="false"/></column>
-			<column name="voided" type="boolean" defaultValueBoolean="false"><constraints nullable="false"/></column>
-			<column name="voided_by" type="int" ><constraints nullable="false"/></column>
-			<column name="date_voided" type="timestamp"><constraints nullable="false"/></column>
+			<column name="Obs_ID" type="int" autoIncrement="true">
+				<constraints primaryKey="true"></constraints>
+			</column>
+			<column name="Patients_Id" type="int">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="Body_Temperature" type="float">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="Body_Pressure" type="float">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="Pulse_Rate" type="float">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="Remarks" type="varchar(1024)">
+				<constraints nullable="true"></constraints>
+			</column>
+			<column name="creator" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="date_created" type="timestamp">
+				<constraints nullable="false"/>
+			</column>
+			<column name="changed_by" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="date_changed" type="timestamp">
+				<constraints nullable="false"/>
+			</column>
+			<column name="voided" type="boolean" defaultValueBoolean="false">
+				<constraints nullable="false"/>
+			</column>
+			<column name="voided_by" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="date_voided" type="timestamp">
+				<constraints nullable="false"/>
+			</column>
 			<column name="void_reason" type="varchar(255)" defaultValue="null"/>
 		</createTable>
 		<addForeignKeyConstraint baseTableName="Observations" baseColumnNames="creator" constraintName="Obs_creator_fk"
@@ -209,18 +390,42 @@
 	</changeSet>
 	<changeSet id="emr-v1.0.7" author="Benjamin Mwalimu Mwalimu">
 		<createTable tableName="Tests">
-			<column name="Test_Id" type="int" autoIncrement="true"><constraints nullable="false" primaryKey="true"></constraints></column>
-			<column name="patients_id" type="int"><constraints nullable="false"></constraints></column>
-			<column name="testName" type="varchar(255)"><constraints nullable="false"></constraints></column>
-			<column name="testDescription" type="varchar(1024)"><constraints nullable="false"></constraints></column>
-			<column name="testResults" type="varchar(1024)"><constraints nullable="false"></constraints></column>
-			<column name="creator" type="int"><constraints nullable="false"/></column>
-			<column name="date_created" type="timestamp" ><constraints nullable="false"/></column>
-			<column name="changed_by" type="int"><constraints nullable="false"/></column>
-			<column name="date_changed" type="timestamp"><constraints nullable="false"/></column>
-			<column name="voided" type="boolean" defaultValueBoolean="false"><constraints nullable="false"/></column>
-			<column name="voided_by" type="int"><constraints nullable="false"/></column>
-			<column name="date_voided" type="timestamp"><constraints nullable="false"/></column>
+			<column name="Test_Id" type="int" autoIncrement="true">
+				<constraints nullable="false" primaryKey="true"></constraints>
+			</column>
+			<column name="patients_id" type="int">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="testName" type="varchar(255)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="testDescription" type="varchar(1024)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="testResults" type="varchar(1024)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="creator" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="date_created" type="timestamp">
+				<constraints nullable="false"/>
+			</column>
+			<column name="changed_by" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="date_changed" type="timestamp">
+				<constraints nullable="false"/>
+			</column>
+			<column name="voided" type="boolean" defaultValueBoolean="false">
+				<constraints nullable="false"/>
+			</column>
+			<column name="voided_by" type="int">
+				<constraints nullable="false"/>
+			</column>
+			<column name="date_voided" type="timestamp">
+				<constraints nullable="false"/>
+			</column>
 			<column name="void_reason" type="varchar(255)" defaultValue="null"/>
 		</createTable>
 		<addForeignKeyConstraint baseTableName="Tests" baseColumnNames="creator" constraintName="Tests_creator_fk"
@@ -235,5 +440,28 @@
 		<addForeignKeyConstraint baseTableName="Tests" baseColumnNames="Patients_Id" constraintName="Tests_Patients_Id"
 		                         referencedTableName="patients"
 		                         referencedColumnNames="patients_id"></addForeignKeyConstraint>
+	</changeSet>
+	<changeSet id="emr-v1.0.8" author="Benjamin Mwalimu Mulyungi">
+		<createTable tableName="user">
+			<column name="user_id" type="int" autoIncrement="true">
+				<constraints nullable="false"
+				             primaryKey="true"></constraints>
+			</column>
+			<column name="passcode" type="varchar(45)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="name" type="varchar(45)">
+				<constraints nullable="false"></constraints>
+			</column>
+			<column name="email" type="varchar(45)">
+				<constraints nullable="false"></constraints>
+			</column>
+		</createTable>
+		<insert tableName="user">
+			<column name="user_id" value="1"></column>
+			<column name="passcode" value="root"></column>
+			<column name="name" value="benjamin"></column>
+			<column name="email" value="benjaminmwalimu1@gmail.com"></column>
+		</insert>
 	</changeSet>
 </databaseChangeLog>
