@@ -1,7 +1,7 @@
 package com.Api_Craft.action;
 
 import com.Api_Craft.dao.UserDAO;
-import com.Api_Craft.dao.UserDAOImpl;
+import com.Api_Craft.dao.impl.UserDAOImpl;
 import com.Api_Craft.model.User;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ModelDriven;

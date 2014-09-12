@@ -5,13 +5,10 @@
 		"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 	<constant name="struts.devMode" value="true"></constant>
-
-	<constant name="struts.convention.result.path" value="/"></constant>
-
-	<package name="user" namespace="/" extends="struts-default">
-		<action name="home">
-			<result>/login.jsp</result>
-		</action>
+	<package name="default" namespace="/" extends="struts-default">
+		<global-results>
+			<result name="login">/login.jsp</result>
+		</global-results>
 		<action name="login" class="com.Api_Craft.action.LoginAction">
 			<result name="success">/welcome.jsp</result>
 			<result name="error">/error.jsp</result>

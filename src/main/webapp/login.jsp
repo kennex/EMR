@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-	<title>Login Page</title>
+	<title>EMR | Login</title>
 </head>
 <body>
 <h3>Welcome User, please login below</h3>

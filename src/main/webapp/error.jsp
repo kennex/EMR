@@ -6,7 +6,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
-	<title>Error Page</title>
+	<title>EMR | Login</title>
 </head>
 <body>
 <h4>User Name or Password is wrong</h4>
