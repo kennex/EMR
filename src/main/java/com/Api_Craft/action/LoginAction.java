@@ -17,7 +17,7 @@ public class LoginAction implements Action, ModelDriven<User>, ServletContextAwa
 
 		SessionFactory sf = (SessionFactory) ctx.getAttribute("SessionFactory");
 		UserDAO userDAO = new UserDAOImpl(sf);
-		User userDB = userDAO.getUserByCredentials(user.getId(), user.getPwd());
+		User userDB = userDAO.getUserByCredentials(user.getName(), user.getPwd());
 		if (userDB == null) {
 			return ERROR;
 		} else {

@@ -15,11 +15,11 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public User getUserByCredentials(Integer userId, String passcode) {
+	public User getUserByCredentials(String name, String passcode) {
 		Session session = sf.openSession();
 		Transaction tx = session.beginTransaction();
-		Query query = session.createQuery("from User where id=:id and pwd=:pwd");
-		query.setInteger("id", userId);
+		Query query = session.createQuery("from User where name=:name and pwd=:pwd");
+		query.setString("name", name);
 		query.setString("pwd", passcode);
 		User user = (User) query.uniqueResult();
 		if (user != null) {

@@ -11,7 +11,7 @@
 <body>
 <h3>Welcome User, please login below</h3>
 <s:form action="login">
-	<s:textfield name="id" label="User ID"></s:textfield>
+	<s:textfield name="name" label="Name"></s:textfield>
 	<s:textfield name="pwd" label="Password" type="password"></s:textfield>
 	<s:submit value="Login"></s:submit>
 </s:form>
