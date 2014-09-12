@@ -1,20 +1,18 @@
-<?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD//EN"
+		"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
 <hibernate-mapping>
-    <class name="com.Api_Craft.model.User" table="user">
-        <id name="id" type="java.lang.Integer">
-            <column name="user_id" />
-            <generator class="assigned" />
-        </id>
-        <property name="name" type="java.lang.String">
-            <column name="name" />
-        </property>
-        <property name="pwd" type="java.lang.String">
-            <column name="passcode" />
-        </property>
-        <property name="email" type="java.lang.String">
-            <column name="email" />
-        </property>
-    </class>
+	<class name="com.Api_Craft.model.User" table="user">
+		<meta attribute="class-description">
+			This class has the user details.
+		</meta>
+		<id name="id" type="java.lang.Integer" column="user_id">
+			<generator class="native"/>
+		</id>
+		<property name="pwd" column="passcode" type="java.lang.String"/>
+		<property name="name" column="name" type="java.lang.String"/>
+		<property name="email" column="email" type="java.lang.String"/>
+	</class>
 </hibernate-mapping>
