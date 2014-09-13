@@ -1,7 +1,3 @@
-body {
-	color: #cccccc;
-}
-
 .logform {
 	width: 380px;
 	margin-top: 200px;
@@ -10,15 +6,24 @@ body {
 }
 
 .logform input[type="text"] {
-	height: 30px;
+	height: 40px;
+	border-bottom-left-radius: 3px;
 }
 
 .logform input[type="password"] {
-	height: 30px;
+	height: 40px;
+	border-bottom-left-radius: 3px;
 }
 
 #loginfom .add-on {
 	width: 100px;
+	border-bottom-right-radius: 3px;
+	height: 30px;
+}
+
+#submit {
+	width: 100%;
+	height: 40px;
 }
 
 #loginfom h2 {
@@ -131,5 +136,5 @@ body {
 }
 
 :root .alert-message {
-	border-radius: 0 \0;
+	border-radius: 0;
 }
