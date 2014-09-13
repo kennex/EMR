@@ -40,8 +40,8 @@ public class LoginAction extends ActionSupport implements Action, ModelDriven<Us
 		UserDAO userDAO = new UserDAOImpl(sf);
 		User userDB = userDAO.getUserByCredentials(user.getName(), user.getPwd());
 		if (userDB == null) {
-			addActionError("Could not authenticate name with username " + user.getName());
-			logs.info("Could not authenticate name with username " + user.getName());
+			addActionError("Could not authenticate User with username " + user.getName());
+			logs.info("Could not authenticate User with username " + user.getName());
 			return ERROR;
 		} else {
 			session.put("loggedin", user.getName());

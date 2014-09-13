@@ -6,7 +6,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>MRMS Dashboard</title>
+	<title>EMR | ADMIN DASHBOARD</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="layout" content="main"/>
 
@@ -31,7 +31,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a href="dashboard.html" class="brand">MRMS</a>
+			<a href="dashboard.html" class="brand">EMR | ADMIN DASHBOARD</a>
 
 			<div id="app-nav-top-bar" class="nav-collapse">
 				<ul class="nav pull-right">
