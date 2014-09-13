@@ -20,7 +20,6 @@
 
 	<h2>Login</h2>
 	<s:hidden name="loginAttempt" value="%{'1'}"/>
-	<s:actionerror/>
 	<p>
 
 	<div class="input-prepend">
