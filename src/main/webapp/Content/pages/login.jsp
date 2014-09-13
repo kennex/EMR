@@ -32,8 +32,8 @@
 						<s:password name="pwd" cssClass="form-control input-lg" placeholder="Password" id="password"/>
 					</div>
 					<div class="form-group">
-						<button type="submit" class="btn btn-primary btn-lg btn-block"><span class="glyphicon-lock"></span>
-							Sign In
+						<button type="submit" class="btn btn-primary btn-lg btn-block">
+						Sign In
 						</button>
 					</div>
 					<s:if test="hasActionErrors()">
