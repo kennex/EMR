@@ -298,10 +298,9 @@
 			<version>2.3.16.3</version>
 		</dependency>
 		<dependency>
-			<groupId>org.mortbay.jetty</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>3.0.20100224</version>
-			<scope>provided</scope>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
@@ -350,6 +349,12 @@
 					</requestLog>
 				</configuration>
 				<dependencies>
+					<dependency>
+						<groupId>org.mortbay.jetty</groupId>
+						<artifactId>servlet-api</artifactId>
+						<version>3.0.20100224</version>
+						<scope>runtime</scope>
+					</dependency>
 					<dependency>
 						<groupId>org.slf4j</groupId>
 						<artifactId>slf4j-api</artifactId>

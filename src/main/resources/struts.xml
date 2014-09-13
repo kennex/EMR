@@ -5,12 +5,13 @@
 		"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 	<constant name="struts.enable.DynamicMethodInvocation" value="false"/>
-	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.devMode" value="true"/>
 	<constant name="struts.objectFactory" value="struts"/>
-	<package name="default" extends="struts-default" namespace="/EMR">
-		<action name="EMR" class="com.Api_Craft.action.LoginAction">
+
+	<package name="default" extends="struts-default" namespace="/" >
+		<global-results>
 			<result>/Content/pages/login.jsp</result>
-		</action>
+		</global-results>
 		<action name="login" class="com.Api_Craft.action.LoginAction">
 			<result name="success">/Content/pages/welcome.jsp</result>
 			<result name="error">/Content/pages/error.jsp</result>
