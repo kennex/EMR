@@ -4,11 +4,13 @@
 		"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 		"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false"/>
 	<constant name="struts.devMode" value="true"></constant>
-	<package name="default" namespace="/" extends="struts-default">
-		<global-results>
-			<result name="login">/Content/pages/login.jsp</result>
-		</global-results>
+	<constant name="struts.objectFactory" value="struts"/>
+	<package name="default" extends="struts-default" namespace="/EMR">
+		<action name="EMR" class="com.Api_Craft.action.LoginAction">
+			<result>/Content/pages/login.jsp</result>
+		</action>
 		<action name="login" class="com.Api_Craft.action.LoginAction">
 			<result name="success">/Content/pages/welcome.jsp</result>
 			<result name="error">/Content/pages/error.jsp</result>

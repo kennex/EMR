@@ -24,6 +24,6 @@
 		<listener-class>com.Api_Craft.listener.HibernateServletContextListener</listener-class>
 	</listener>
 	<welcome-file-list>
-		<welcome-file>Content/login.jsp</welcome-file>
+		<welcome-file>/Content/pages/login.jsp</welcome-file>
 	</welcome-file-list>
 </web-app>

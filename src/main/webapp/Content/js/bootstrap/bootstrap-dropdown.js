@@ -17,134 +17,129 @@
  * limitations under the License.
  * ============================================================ */
 
-
 !function ($) {
 
-  "use strict"; // jshint ;_;
+	"use strict"; // jshint ;_;
 
+	/* DROPDOWN CLASS DEFINITION
+	 * ========================= */
 
- /* DROPDOWN CLASS DEFINITION
-  * ========================= */
+	var toggle = '[data-toggle=dropdown]'
+			, Dropdown = function (element) {
+				var $el = $(element).on('click.dropdown.data-api', this.toggle)
+				$('html').on('click.dropdown.data-api', function () {
+					$el.parent().removeClass('open')
+				})
+			}
 
-  var toggle = '[data-toggle=dropdown]'
-    , Dropdown = function (element) {
-        var $el = $(element).on('click.dropdown.data-api', this.toggle)
-        $('html').on('click.dropdown.data-api', function () {
-          $el.parent().removeClass('open')
-        })
-      }
+	Dropdown.prototype = {
 
-  Dropdown.prototype = {
+		constructor: Dropdown, toggle: function (e) {
+			var $this = $(this)
+					, $parent
+					, isActive
 
-    constructor: Dropdown
+			if ($this.is('.disabled, :disabled')) return
 
-  , toggle: function (e) {
-      var $this = $(this)
-        , $parent
-        , isActive
+			$parent = getParent($this)
 
-      if ($this.is('.disabled, :disabled')) return
+			isActive = $parent.hasClass('open')
 
-      $parent = getParent($this)
+			clearMenus()
 
-      isActive = $parent.hasClass('open')
+			if (!isActive) {
+				$parent.toggleClass('open')
+				$this.focus()
+			}
 
-      clearMenus()
+			return false
+		}, keydown: function (e) {
+			var $this
+					, $items
+					, $active
+					, $parent
+					, isActive
+					, index
 
-      if (!isActive) {
-        $parent.toggleClass('open')
-        $this.focus()
-      }
+			if (!/(38|40|27)/.test(e.keyCode)) return
 
-      return false
-    }
+			$this = $(this)
 
-  , keydown: function (e) {
-      var $this
-        , $items
-        , $active
-        , $parent
-        , isActive
-        , index
+			e.preventDefault()
+			e.stopPropagation()
 
-      if (!/(38|40|27)/.test(e.keyCode)) return
+			if ($this.is('.disabled, :disabled')) return
 
-      $this = $(this)
+			$parent = getParent($this)
 
-      e.preventDefault()
-      e.stopPropagation()
+			isActive = $parent.hasClass('open')
 
-      if ($this.is('.disabled, :disabled')) return
+			if (!isActive || (isActive && e.keyCode == 27)) return $this.click()
 
-      $parent = getParent($this)
+			$items = $('[role=menu] li:not(.divider) a', $parent)
 
-      isActive = $parent.hasClass('open')
+			if (!$items.length) return
 
-      if (!isActive || (isActive && e.keyCode == 27)) return $this.click()
+			index = $items.index($items.filter(':focus'))
 
-      $items = $('[role=menu] li:not(.divider) a', $parent)
+			if (e.keyCode == 38 && index > 0) index--                                        // up
+			if (e.keyCode == 40 && index < $items.length - 1) index++                        // down
+			if (!~index) index = 0
 
-      if (!$items.length) return
+			$items
+					.eq(index)
+					.focus()
+		}
 
-      index = $items.index($items.filter(':focus'))
+	}
 
-      if (e.keyCode == 38 && index > 0) index--                                        // up
-      if (e.keyCode == 40 && index < $items.length - 1) index++                        // down
-      if (!~index) index = 0
+	function clearMenus() {
+		getParent($(toggle))
+				.removeClass('open')
+	}
 
-      $items
-        .eq(index)
-        .focus()
-    }
+	function getParent($this) {
+		var selector = $this.attr('data-target')
+				, $parent
 
-  }
+		if (!selector) {
+			selector = $this.attr('href')
+			selector = selector && /#/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
+		}
 
-  function clearMenus() {
-    getParent($(toggle))
-      .removeClass('open')
-  }
+		$parent = $(selector)
+		$parent.length || ($parent = $this.parent())
 
-  function getParent($this) {
-    var selector = $this.attr('data-target')
-      , $parent
+		return $parent
+	}
 
-    if (!selector) {
-      selector = $this.attr('href')
-      selector = selector && /#/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
-    }
+	/* DROPDOWN PLUGIN DEFINITION
+	 * ========================== */
 
-    $parent = $(selector)
-    $parent.length || ($parent = $this.parent())
+	$.fn.dropdown = function (option) {
+		return this.each(function () {
+			var $this = $(this)
+					, data = $this.data('dropdown')
+			if (!data) $this.data('dropdown', (data = new Dropdown(this)))
+			if (typeof option == 'string') data[option].call($this)
+		})
+	}
 
-    return $parent
-  }
+	$.fn.dropdown.Constructor = Dropdown
 
+	/* APPLY TO STANDARD DROPDOWN ELEMENTS
+	 * =================================== */
 
-  /* DROPDOWN PLUGIN DEFINITION
-   * ========================== */
-
-  $.fn.dropdown = function (option) {
-    return this.each(function () {
-      var $this = $(this)
-        , data = $this.data('dropdown')
-      if (!data) $this.data('dropdown', (data = new Dropdown(this)))
-      if (typeof option == 'string') data[option].call($this)
-    })
-  }
-
-  $.fn.dropdown.Constructor = Dropdown
-
-
-  /* APPLY TO STANDARD DROPDOWN ELEMENTS
-   * =================================== */
-
-  $(function () {
-    $('html')
-      .on('click.dropdown.data-api touchstart.dropdown.data-api', clearMenus)
-    $('body')
-      .on('click.dropdown touchstart.dropdown.data-api', '.dropdown form', function (e) { e.stopPropagation() })
-      .on('click.dropdown.data-api touchstart.dropdown.data-api'  , toggle, Dropdown.prototype.toggle)
-      .on('keydown.dropdown.data-api touchstart.dropdown.data-api', toggle + ', [role=menu]' , Dropdown.prototype.keydown)
-  })
+	$(function () {
+		$('html')
+				.on('click.dropdown.data-api touchstart.dropdown.data-api', clearMenus)
+		$('body')
+				.on('click.dropdown touchstart.dropdown.data-api', '.dropdown form', function (e) {
+					e.stopPropagation()
+				})
+				.on('click.dropdown.data-api touchstart.dropdown.data-api', toggle, Dropdown.prototype.toggle)
+				.on('keydown.dropdown.data-api touchstart.dropdown.data-api', toggle + ', [role=menu]',
+				Dropdown.prototype.keydown)
+	})
 
 }(window.jQuery);

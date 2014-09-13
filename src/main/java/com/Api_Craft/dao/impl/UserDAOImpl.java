@@ -9,7 +9,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 public class UserDAOImpl implements UserDAO {
-	static final Logger logs= Logger.getLogger(UserDAOImpl.class);
+	static final Logger logs = Logger.getLogger(UserDAOImpl.class);
 
 	private SessionFactory sf;
 
