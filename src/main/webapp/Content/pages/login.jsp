@@ -16,25 +16,25 @@
 	<link href="${pageContext.request.contextPath}/Content/css/login.css" type="text/css" media="screen, projection"
 	      rel="stylesheet"/>
 </head>
-<body style="background-color:#808989">
+<body style="background-color:darkslategrey">
 <div id="loginModal" class="modal show" tabindex="-1" role="dialog" aria-hidden="true">
 	<div class="modal-dialog loginModal">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h1 class="text-center">Login</h1>
+				<h2 class="text-center"><b>Ushirika Hospital System Login</b></h2>
 			</div>
 			<div class="modal-body">
 				<form action="login" class="form col-md-12 center-block" method="POST">
 					<div class="form-group">
-						<s:textfield name="name" cssClass="form-control input-lg" placeholder="Username" id="username"/>
+						<s:textfield name="name" cssClass="form-control input-lg" placeholder="Enter your Username"
+						             id="username"/>
 					</div>
 					<div class="form-group">
-						<s:password name="pwd" cssClass="form-control input-lg" placeholder="Password" id="password"/>
+						<s:password name="pwd" cssClass="form-control input-lg" placeholder="Enter your Password"
+						            id="password"/>
 					</div>
 					<div class="form-group">
-						<button type="submit" class="btn btn-primary btn-lg btn-block">
-						Sign In
-						</button>
+						<button type="submit" class="btn btn-primary btn-lg btn-block" id="loginBtn"><b>Sign In</b></button>
 					</div>
 					<s:if test="hasActionErrors()">
 						<div class="alert-message error">
@@ -54,7 +54,8 @@
 			</div>
 			<div class="modal-footer">
 				<div class="col-md-12 footer">
-					<p><b>CopyRights &copy; 2014 EMR | Design : <a rel="nofollow" href="http://www.api-crafttech.com"
+					<p><b>Copyrights &copy; 2014 EMR | Designed &amp; Maintained by : <a rel="nofollow"
+					                                                        href="http://www.api-crafttech.com"
 					                                               target="_blank">Api-Craft Technology</a></b></p>
 				</div>
 			</div>

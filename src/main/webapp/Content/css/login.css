@@ -9,3 +9,23 @@
 .footer {
 	text-align: center;
 }
+#username, #password {
+	color: #000000;
+}
+#username:focus, #password:focus {
+
+}
+.modal-header h2 {
+	text-transform: uppercase;
+	color: darkslategrey;
+}
+#loginBtn {
+	color: #ffffff;
+	text-transform: uppercase;
+}
+.btn-primary {
+	background-color: darkslategrey;
+}
+.btn :hover {
+	background-color: #204E4F;
+}
